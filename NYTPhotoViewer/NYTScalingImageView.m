@@ -92,20 +92,20 @@
 #else
     self.imageView = [[UIImageView alloc] initWithImage:imageToUse];
 #endif
-    [self updateImage:imageToUse imageData:imageData];
+    [self updateImage:imageToUse imageData:imageData animated:NO];
     
     [self addSubview:self.imageView];
 }
 
-- (void)updateImage:(UIImage *)image {
-    [self updateImage:image imageData:nil];
+- (void)updateImage:(UIImage *)image animate:(BOOL)animated {
+    [self updateImage:image imageData:nil animated:animated];
 }
 
-- (void)updateImageData:(NSData *)imageData {
-    [self updateImage:nil imageData:imageData];
+- (void)updateImageData:(NSData *)imageData animated:(BOOL)animated {
+    [self updateImage:nil imageData:imageData animated:animated];
 }
 
-- (void)updateImage:(UIImage *)image imageData:(NSData *)imageData {
+- (void)updateImage:(UIImage *)image imageData:(NSData *)imageData animated:(BOOL)animated {
 #ifdef DEBUG
 #ifndef ANIMATED_GIF_SUPPORT
     if (imageData != nil) {
@@ -118,8 +118,18 @@
 
     // Remove any transform currently applied by the scroll view zooming.
     self.imageView.transform = CGAffineTransformIdentity;
-    self.imageView.image = imageToUse;
     
+    if (animated) {
+        [UIView transitionWithView:self.imageView
+                          duration:0.3f
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            self.imageView.image = imageToUse;
+                        } completion:nil];
+    } else {
+        self.imageView.image = imageToUse;
+    }
+
 #ifdef ANIMATED_GIF_SUPPORT
     // It's necessarry to first assign the UIImage so calulations for layout go right (see above)
     self.imageView.animatedImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:imageData];

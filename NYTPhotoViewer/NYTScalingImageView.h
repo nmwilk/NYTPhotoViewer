@@ -49,15 +49,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the image in the image view and centers and zooms the new image.
  *
  *  @param image The new image to display in the image view.
+ *  @param animated Dissolve in the transition.
  */
-- (void)updateImage:(UIImage *)image;
+- (void)updateImage:(UIImage *)image animate:(BOOL)animated;
 
 /**
  *  Updates the image in the image view and centers and zooms the new image.
  *
  *  @param imageData The data representing an animated image to display in the image view.
+ *  @param animated Dissolve in the transition.
  */
-- (void)updateImageData:(NSData *)imageData;
+- (void)updateImageData:(NSData *)imageData animated:(BOOL)animated;
 
 /**
  *  Centers the image inside of the scroll view. Typically used after rotation, or when zooming has finished.

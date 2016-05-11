@@ -73,7 +73,7 @@
 - (void)testUpdateImageUpdatesImage {
     UIImage *image = [UIImage new];
     NYTScalingImageView *scalingImageView = [[NYTScalingImageView alloc] initWithImage:image frame:CGRectZero];
-    [scalingImageView updateImage:image];
+    [scalingImageView updateImage:image animate:NO];
     
     XCTAssertEqual(scalingImageView.imageView.image, image);
 }
@@ -82,7 +82,7 @@
     NSData *image2 = [NSData dataWithContentsOfFile:self.gifPath];
     
     NYTScalingImageView *scalingImageView = [[NYTScalingImageView alloc] initWithImageData:self.imageData frame:CGRectZero];
-    [scalingImageView updateImageData:image2];
+    [scalingImageView updateImageData:image2 animated:NO];
 
     XCTAssertEqual(image2, ((FLAnimatedImageView *)scalingImageView.imageView).animatedImage.data);
 }
