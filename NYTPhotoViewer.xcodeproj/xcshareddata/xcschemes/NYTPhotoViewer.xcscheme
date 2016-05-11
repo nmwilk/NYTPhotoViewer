@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "111084051C875B5000699670"
-               BuildableName = "NYTPhotoViewer.framework"
-               BlueprintName = "NYTPhotoViewer"
+               BlueprintIdentifier = "111084691C876A2B00699670"
+               BuildableName = "Example.app"
+               BlueprintName = "Example"
                ReferencedContainer = "container:NYTPhotoViewer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -61,6 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "111084691C876A2B00699670"
+            BuildableName = "Example.app"
+            BlueprintName = "Example"
+            ReferencedContainer = "container:NYTPhotoViewer.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
